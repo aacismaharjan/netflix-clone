@@ -1,4 +1,4 @@
-import styled from "styled-components/macro";
+import styled from 'styled-components/macro';
 
 export const Item = styled.div`
   display: flex;
@@ -52,6 +52,15 @@ export const SubTitle = styled.h2`
   }
 `;
 
-export const Image = styled.img``;
+export const Image = styled.img`
+  max-width: 100%;
+  height: auto;
+`;
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  @media (max-width: 1000px) {
+    ${Item}:last-of-type h2 {
+      margin-bottom: 50px;
+    }
+  }
+`;
