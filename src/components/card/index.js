@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext } from "react";
 import {
   Container,
   Group,
@@ -15,7 +15,7 @@ import {
   Entities,
   Item,
   Image,
-} from './styles/card';
+} from "./styles/card";
 
 export const FeatureContext = createContext();
 
@@ -24,7 +24,9 @@ export default function Card({ children, ...restProps }) {
   const [itemFeature, setItemFeature] = useState({});
 
   return (
-    <FeatureContext.Provider value={{ showFeature, setShowFeature, itemFeature, setItemFeature }}>
+    <FeatureContext.Provider
+      value={{ showFeature, setShowFeature, itemFeature, setItemFeature }}
+    >
       <Container {...restProps}>{children}</Container>
     </FeatureContext.Provider>
   );
@@ -51,7 +53,8 @@ Card.Meta = function CardMeta({ children, ...restProps }) {
 };
 
 Card.Feature = function CardFeature({ children, category, ...restProps }) {
-  const { showFeature, itemFeature, setShowFeature } = useContext(FeatureContext);
+  const { showFeature, itemFeature, setShowFeature } =
+    useContext(FeatureContext);
 
   return showFeature ? (
     <Feature
@@ -67,11 +70,12 @@ Card.Feature = function CardFeature({ children, category, ...restProps }) {
 
         <Group margin="30px 0" flexDirection="row" alignItems="center">
           <Maturity rating={itemFeature.maturity}>
-            {itemFeature.maturity < 12 ? 'PG' : itemFeature.maturity}
+            {itemFeature.maturity < 12 ? "PG" : itemFeature.maturity}
           </Maturity>
 
           <FeatureText fontWeight="bold">
-            {itemFeature.genre.charAt(0).toUpperCase() + itemFeature.genre.slice(1)}
+            {itemFeature.genre.charAt(0).toUpperCase() +
+              itemFeature.genre.slice(1)}
           </FeatureText>
         </Group>
 

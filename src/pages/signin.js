@@ -1,19 +1,19 @@
-import React, { useState, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
-import { FirebaseContext } from '../context/firebase';
-import { HeaderContainer } from '../containers/header';
-import { FooterContainer } from '../containers/footer';
-import { Form } from '../components';
-import * as ROUTES from '../constants/routes';
+import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
+import { FirebaseContext } from "../context/firebase";
+import { HeaderContainer } from "../containers/header";
+import { FooterContainer } from "../containers/footer";
+import { Form } from "../components";
+import * as ROUTES from "../constants/routes";
 
 export default function Signin() {
   const history = useHistory();
   const { firebase } = useContext(FirebaseContext);
-  const [emailAddress, setEmailAddress] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [emailAddress, setEmailAddress] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-  const isInvalid = password === '' || emailAddress === '';
+  const isInvalid = password === "" || emailAddress === "";
 
   const handleSignIn = (event) => {
     event.preventDefault();
@@ -26,8 +26,8 @@ export default function Signin() {
         history.push(ROUTES.BROWSE);
       })
       .catch((error) => {
-        setEmailAddress('');
-        setPassword('');
+        setEmailAddress("");
+        setPassword("");
         setError(error.message);
       });
   };
@@ -63,7 +63,8 @@ export default function Signin() {
           </Form.Text>
 
           <Form.TextSmall>
-            This page is protected by Google reCAPTCHA to ensure you're not a bot. Learn More
+            This page is protected by Google reCAPTCHA to ensure you're not a
+            bot. Learn More
           </Form.TextSmall>
         </Form>
       </HeaderContainer>
